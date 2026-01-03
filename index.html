@@ -44,10 +44,7 @@
       color: var(--primary);
       text-decoration: none;
     }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a:hover { text-decoration: underline; }
 
     .page {
       max-width: 1100px;
@@ -62,7 +59,7 @@
       margin-bottom: 16px;
     }
 
-    /* NOVO: layout do cabeçalho com logo */
+    /* layout do cabeçalho com logo */
     .header-row {
       display: flex;
       align-items: center;
@@ -86,9 +83,7 @@
       font-size: 0.95rem;
     }
 
-    .top-ad {
-      margin: 8px 0 16px;
-    }
+    .top-ad { margin: 8px 0 16px; }
 
     .ad-placeholder {
       width: 100%;
@@ -101,6 +96,8 @@
       font-size: 0.8rem;
       color: var(--text-muted);
       background: #f9fafb;
+      text-align: center;
+      padding: 10px;
     }
 
     /* MAIN EM COLUNA ÚNICA */
@@ -119,50 +116,169 @@
       border: 1px solid var(--border-soft);
     }
 
+    /* ============================================================
+       AJUSTE: PARTE CENTRAL (IGUAL AO PRINT)
+       ============================================================ */
     .timer-card {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      padding: 0;
     }
 
-    .timer-header {
+    .timer-center-panel {
+      width: 720px;
+      max-width: 100%;
+      margin: 0 auto;
+      border-radius: 10px;
+      border: 1px solid rgba(229, 231, 235, 0.85);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.10);
+      padding: 44px 26px 28px;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      gap: 8px;
+    }
+
+    .mode-tabs {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 26px;
     }
 
-    .timer-mode {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      border-radius: 999px;
+    .mode-tab {
+      border: 1px solid rgba(229, 231, 235, 0.95);
+      background: rgba(255, 255, 255, 0.75);
+      color: rgba(17, 24, 39, 0.75);
+      border-radius: 6px;
+      padding: 10px 18px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.10);
+      transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    .mode-tab:active { transform: translateY(0.5px); }
+
+    .mode-tab.active {
       background: var(--primary-soft);
+      border-color: rgba(37, 99, 235, 0.6);
       color: var(--primary);
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    .timer-display {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
     }
 
     .timer-time {
-      font-size: 5.5rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-size: clamp(80px, 10vw, 170px);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-align: center;
+      margin: 0 0 18px;
+      line-height: 1;
+      color: rgba(17,24,39,0.92);
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      padding: 10px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
+      font-family: inherit;
+    }
+    button:active { transform: translateY(0.5px); }
+
+    /* Botão INICIAR no estilo do print (branco, destacado) */
+    .btn-start {
+      background: rgba(255,255,255,0.92);
+      color: var(--primary);
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(229,231,235,0.95);
+      border-radius: 6px;
+      padding: 14px 34px;
+      box-shadow: 0 10px 20px rgba(15, 23, 42, 0.18);
+      margin-bottom: 10px;
+    }
+    .btn-start:hover { background: #ffffff; }
+
+    /* Ações pequenas abaixo (tipo “links/botões discretos”) */
+    .mini-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .mini-btn {
+      background: transparent;
+      border: 1px solid rgba(229,231,235,0.6);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      color: rgba(17,24,39,0.72);
+      box-shadow: none;
+    }
+    .mini-btn:hover { background: rgba(255,255,255,0.45); }
+
+    .mini-danger { color: var(--danger); }
+
+    .custom-times {
+      display: none;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 10px 0 18px;
+      width: 100%;
+    }
+
+    .time-input {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 0.75rem;
+      color: rgba(107,114,128,0.95);
+      align-items: center;
+    }
+
+    .time-input input {
+      width: 92px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(229,231,235,0.95);
+      font-size: 0.95rem;
+      text-align: center;
+      background: rgba(255,255,255,0.90);
+    }
+
+    /* Vídeo no centro, com tamanho bem parecido */
+    .music-frame {
+      width: 560px;
+      max-width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(229,231,235,0.9);
+      overflow: hidden;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
     }
 
     .progress-bar {
       width: 100%;
       height: 6px;
       border-radius: 999px;
-      background: #e5e7eb;
+      background: rgba(229,231,235,0.95);
+      margin: 0 0 18px;
+      overflow: hidden;
     }
 
     .progress-inner {
@@ -172,134 +288,9 @@
       transition: width 0.25s linear;
     }
 
-    .timer-controls {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      padding: 8px 16px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: background 0.15s ease, transform 0.05s ease, box-shadow 0.15s ease;
-    }
-
-    /* Botões do timer maiores */
-    .timer-controls button {
-      font-size: 1.05rem;
-      padding: 12px 28px;
-    }
-
-    button:active {
-      transform: translateY(0.5px);
-      box-shadow: none;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-    }
-
-    .btn-primary:hover {
-      background: #1d4ed8;
-    }
-
-    .btn-ghost {
-      background: #f3f4f6;
-      color: var(--text-main);
-    }
-
-    .btn-ghost:hover {
-      background: #e5e7eb;
-    }
-
-    .btn-danger {
-      background: #fee2e2;
-      color: var(--danger);
-    }
-
-    .btn-danger:hover {
-      background: #fecaca;
-    }
-
-    .preset-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-    }
-
-    .preset-pill {
-      border-radius: 999px;
-      padding: 12px 24px;
-      font-size: 1rem;
-      border: 1px solid var(--border-soft);
-      background: #f9fafb;
-      cursor: pointer;
-      color: var(--text-muted);
-      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-    }
-
-    .preset-pill.active {
-      background: var(--primary-soft);
-      border-color: var(--primary);
-      color: var(--primary);
-      font-weight: 600;
-    }
-
-    .custom-times {
-      display: none;
-      gap: 8px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 8px;
-    }
-
-    .time-input {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .time-input input {
-      width: 72px;
-      padding: 4px 6px;
-      border-radius: 8px;
-      border: 1px solid var(--border-soft);
-      font-size: 0.8rem;
-    }
-
-    .music-section {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .music-section h2 {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    /* Borda do tamanho exato do vídeo */
-    .music-frame {
-      width: 400px;
-      max-width: 100%;
-      border-radius: 12px;
-      border: 1px solid var(--border-soft);
-      overflow: hidden;
-      margin: 0 auto;
-    }
+    /* ============================================================
+       RESTANTE DO SITE (como estava)
+       ============================================================ */
 
     .tasks-card h2,
     .summary-card h2,
@@ -371,13 +362,9 @@
       justify-content: flex-end;
     }
 
-    .bottom-ad {
-      margin-top: 16px;
-    }
+    .bottom-ad { margin-top: 16px; }
 
-    .content {
-      margin-top: 24px;
-    }
+    .content { margin-top: 24px; }
 
     .content h2 {
       font-size: 1.1rem;
@@ -415,8 +402,17 @@
       font-size: 0.75rem;
       font-weight: 600;
     }
+
+    /* Responsivo: reduz espaço e vídeo */
+    @media (max-width: 520px) {
+      .timer-center-panel { padding: 28px 14px 18px; }
+      .mode-tabs { gap: 10px; margin-bottom: 18px; }
+      .mode-tab { padding: 10px 12px; font-size: 0.78rem; }
+      .music-frame iframe { height: 200px !important; }
+    }
   </style>
 </head>
+
 <body>
   <div class="page">
     <header>
@@ -441,58 +437,51 @@
     </div>
 
     <main>
-      <!-- TIMER + VÍDEO -->
-      <section class="card timer-card" aria-label="Timer Pomodoro">
-        <div class="timer-header">
-          <div class="timer-mode" id="timerModeLabel">
-            • Foco
+      <!-- TIMER CENTRAL (AJUSTADO) -->
+      <section class="timer-card" aria-label="Timer Pomodoro">
+        <div class="timer-center-panel">
+          <div class="mode-tabs" aria-label="Modos">
+            <button class="mode-tab active" data-mode="focus">Pomodoro</button>
+            <button class="mode-tab" data-mode="shortBreak">Pausa curta</button>
+            <button class="mode-tab" data-mode="longBreak">Pausa longa</button>
           </div>
-          <div class="preset-row" aria-label="Configurações de tempo">
-            <button class="preset-pill active" data-preset="classic">25/5/15</button>
-            <button class="preset-pill" data-preset="custom">Personalizar</button>
-          </div>
-        </div>
 
-        <div class="timer-display">
           <div class="timer-time" id="timerDisplay">25:00</div>
+
           <div class="progress-bar" aria-hidden="true">
             <div class="progress-inner" id="timerProgress"></div>
           </div>
-        </div>
 
-        <div class="timer-controls">
-          <button class="btn-primary" id="startPauseBtn">Iniciar</button>
-          <button class="btn-ghost" id="nextPhaseBtn">Próximo ciclo</button>
-          <button class="btn-danger" id="resetBtn">Zerar</button>
-        </div>
+          <button class="btn-start" id="startPauseBtn">Iniciar</button>
 
-        <div class="custom-times" id="customTimes">
-          <div class="time-input">
-            <label for="focusMinutes">Foco (min)</label>
-            <input type="number" id="focusMinutes" min="1" max="180" value="25">
+          <div class="mini-actions">
+            <button class="mini-btn" id="nextPhaseBtn">Próximo</button>
+            <button class="mini-btn mini-danger" id="resetBtn">Zerar</button>
+            <button class="mini-btn" id="toggleCustomBtn">Personalizar</button>
           </div>
-          <div class="time-input">
-            <label for="shortBreakMinutes">Pausa curta (min)</label>
-            <input type="number" id="shortBreakMinutes" min="1" max="60" value="5">
-          </div>
-          <div class="time-input">
-            <label for="longBreakMinutes">Pausa longa (min)</label>
-            <input type="number" id="longBreakMinutes" min="1" max="60" value="15">
-          </div>
-          <button class="btn-ghost" id="applyCustomBtn">Aplicar</button>
-        </div>
 
-        <div class="music-section">
-          <h2>Música de estudo (opcional)</h2>
-          <p style="font-size:0.8rem; color:var(--text-muted);">
-            Clique no play abaixo para ouvir uma música calma enquanto usa o Timer Pomodoro.
-          </p>
+          <div class="custom-times" id="customTimes">
+            <div class="time-input">
+              <label for="focusMinutes">Foco (min)</label>
+              <input type="number" id="focusMinutes" min="1" max="180" value="25">
+            </div>
+            <div class="time-input">
+              <label for="shortBreakMinutes">Pausa curta (min)</label>
+              <input type="number" id="shortBreakMinutes" min="1" max="60" value="5">
+            </div>
+            <div class="time-input">
+              <label for="longBreakMinutes">Pausa longa (min)</label>
+              <input type="number" id="longBreakMinutes" min="1" max="60" value="15">
+            </div>
+            <button class="mini-btn" id="applyCustomBtn">Aplicar</button>
+          </div>
+
           <div class="music-frame">
             <iframe
               src="https://www.youtube-nocookie.com/embed/jfKfPfyJRdk?rel=0"
               title="Lofi hip hop radio – beats to relax/study to"
               loading="lazy"
-              style="width:100%;height:200px;border:0;"
+              style="width:100%;height:280px;border:0;"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
@@ -509,7 +498,7 @@
         </p>
         <div class="task-input-row">
           <input type="text" id="taskInput" placeholder="Ex.: revisar capítulo 3, responder e-mails..." />
-          <button class="btn-ghost" id="addTaskBtn">Adicionar</button>
+          <button class="mini-btn" id="addTaskBtn">Adicionar</button>
         </div>
         <ul class="task-list" id="taskList"></ul>
       </section>
@@ -529,7 +518,7 @@
           </div>
         </div>
         <div class="summary-actions">
-          <button class="btn-ghost" id="resetDayBtn">Zerar contagem de hoje</button>
+          <button class="mini-btn" id="resetDayBtn">Zerar contagem de hoje</button>
         </div>
       </section>
 
@@ -571,11 +560,10 @@
 
         <h2>Como usar o Timer Pomodoro BR</h2>
         <ul>
-          <li>1. Escolha um bloco de tempo (25/5/15, por exemplo).</li>
-          <li>2. Liste 2–5 tarefas na área “Tarefas desta sessão”.</li>
-          <li>3. Clique em <strong>Iniciar</strong> e foque totalmente até o timer zerar.</li>
-          <li>4. Faça a pausa curta, levante, beba água, alongue.</li>
-          <li>5. Repita o ciclo. Após alguns blocos, faça uma pausa mais longa.</li>
+          <li>1. Escolha um modo (Pomodoro, Pausa curta, Pausa longa).</li>
+          <li>2. Clique em <strong>Iniciar</strong> e foque totalmente até o timer zerar.</li>
+          <li>3. Use a pausa curta/longa quando precisar.</li>
+          <li>4. Repita o ciclo.</li>
         </ul>
 
         <p>
@@ -595,12 +583,6 @@
     const STORAGE_KEY_TASKS = "tpbr_tasks";
     const STORAGE_KEY_STATS = "tpbr_stats";
 
-    const modes = {
-      focus: "Foco",
-      shortBreak: "Pausa curta",
-      longBreak: "Pausa longa",
-    };
-
     let config = {
       focusMinutes: 25,
       shortBreakMinutes: 5,
@@ -610,6 +592,7 @@
     let currentMode = "focus";
     let remainingSeconds = config.focusMinutes * 60;
     let timerInterval = null;
+
     let totalFocusSecondsToday = 0;
     let blocksToday = 0;
     let todayKey = getTodayKey();
@@ -617,13 +600,14 @@
     // ====== ELEMENTOS ======
     const timerDisplay = document.getElementById("timerDisplay");
     const timerProgress = document.getElementById("timerProgress");
-    const timerModeLabel = document.getElementById("timerModeLabel");
     const startPauseBtn = document.getElementById("startPauseBtn");
     const resetBtn = document.getElementById("resetBtn");
     const nextPhaseBtn = document.getElementById("nextPhaseBtn");
 
-    const presetButtons = document.querySelectorAll(".preset-pill");
+    const modeTabs = document.querySelectorAll(".mode-tab");
+
     const customTimes = document.getElementById("customTimes");
+    const toggleCustomBtn = document.getElementById("toggleCustomBtn");
     const focusInput = document.getElementById("focusMinutes");
     const shortBreakInput = document.getElementById("shortBreakMinutes");
     const longBreakInput = document.getElementById("longBreakMinutes");
@@ -652,17 +636,26 @@
       return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`;
     }
 
+    function totalSecondsForMode(mode) {
+      if (mode === "focus") return config.focusMinutes * 60;
+      if (mode === "shortBreak") return config.shortBreakMinutes * 60;
+      return config.longBreakMinutes * 60;
+    }
+
+    function setActiveTab(mode) {
+      modeTabs.forEach((btn) => {
+        btn.classList.toggle("active", btn.getAttribute("data-mode") === mode);
+      });
+    }
+
     function updateTimerDisplay() {
       timerDisplay.textContent = formatTime(remainingSeconds);
-      timerModeLabel.textContent = `• ${modes[currentMode]}`;
 
-      let totalSecondsMode = 1;
-      if (currentMode === "focus") totalSecondsMode = config.focusMinutes * 60;
-      else if (currentMode === "shortBreak") totalSecondsMode = config.shortBreakMinutes * 60;
-      else totalSecondsMode = config.longBreakMinutes * 60;
-
-      const progress = 1 - remainingSeconds / totalSecondsMode;
+      const total = totalSecondsForMode(currentMode) || 1;
+      const progress = 1 - remainingSeconds / total;
       timerProgress.style.width = `${Math.min(Math.max(progress, 0), 1) * 100}%`;
+
+      setActiveTab(currentMode);
     }
 
     function stopTimer() {
@@ -677,6 +670,7 @@
       if (timerInterval) return;
       timerInterval = setInterval(() => {
         remainingSeconds -= 1;
+
         if (remainingSeconds <= 0) {
           remainingSeconds = 0;
           updateTimerDisplay();
@@ -686,10 +680,19 @@
           updateTimerDisplay();
         }
       }, 1000);
+
       startPauseBtn.textContent = "Pausar";
     }
 
+    function setMode(mode) {
+      stopTimer();
+      currentMode = mode;
+      remainingSeconds = totalSecondsForMode(mode);
+      updateTimerDisplay();
+    }
+
     function handleTimerComplete() {
+      // Conta foco somente quando termina um Pomodoro
       if (currentMode === "focus") {
         blocksToday += 1;
         totalFocusSecondsToday += config.focusMinutes * 60;
@@ -697,52 +700,26 @@
         renderStats();
       }
 
+      // Comportamento simples (igual ao mais comum):
+      // Pomodoro -> Pausa curta
+      // Pausas -> Pomodoro
       if (currentMode === "focus") {
-        currentMode = "shortBreak";
-        remainingSeconds = config.shortBreakMinutes * 60;
-      } else if (currentMode === "shortBreak") {
-        currentMode = "focus";
-        remainingSeconds = config.focusMinutes * 60;
+        setMode("shortBreak");
       } else {
-        currentMode = "focus";
-        remainingSeconds = config.focusMinutes * 60;
+        setMode("focus");
       }
 
-      updateTimerDisplay();
-      try {
-        window.navigator.vibrate && window.navigator.vibrate(200);
-      } catch (e) {}
+      try { window.navigator.vibrate && window.navigator.vibrate(200); } catch (e) {}
     }
 
     function resetTimer() {
       stopTimer();
       currentMode = "focus";
-      remainingSeconds = config.focusMinutes * 60;
+      remainingSeconds = totalSecondsForMode("focus");
       updateTimerDisplay();
     }
 
-    // ====== PRESETS ======
-    function setPreset(preset) {
-      presetButtons.forEach((btn) => btn.classList.remove("active"));
-      const btn = document.querySelector(`.preset-pill[data-preset="${preset}"]`);
-      if (btn) btn.classList.add("active");
-
-      if (preset === "classic") {
-        config.focusMinutes = 25;
-        config.shortBreakMinutes = 5;
-        config.longBreakMinutes = 15;
-        customTimes.style.display = "none";
-      } else {
-        // custom
-        customTimes.style.display = "flex";
-      }
-
-      remainingSeconds = config.focusMinutes * 60;
-      currentMode = "focus";
-      updateTimerDisplay();
-    }
-
-    // ====== TAREFAS ======>
+    // ====== TAREFAS ======
     function loadTasks() {
       try {
         const raw = localStorage.getItem(STORAGE_KEY_TASKS);
@@ -760,6 +737,7 @@
     function renderTasks() {
       const tasks = loadTasks();
       taskList.innerHTML = "";
+
       tasks.forEach((task) => {
         const li = document.createElement("li");
         li.className = "task-item";
@@ -767,6 +745,7 @@
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.checked = task.done;
+
         checkbox.addEventListener("change", () => {
           task.done = checkbox.checked;
           saveTasks(tasks);
@@ -780,9 +759,11 @@
 
         const removeBtn = document.createElement("button");
         removeBtn.textContent = "×";
-        removeBtn.style.fontSize = "0.8rem";
-        removeBtn.style.padding = "2px 8px";
-        removeBtn.className = "btn-ghost";
+        removeBtn.className = "mini-btn";
+        removeBtn.style.padding = "6px 10px";
+        removeBtn.style.borderRadius = "10px";
+        removeBtn.style.fontWeight = "800";
+
         removeBtn.addEventListener("click", () => {
           const index = tasks.findIndex((t) => t.id === task.id);
           if (index >= 0) {
@@ -802,12 +783,10 @@
     function addTask() {
       const text = taskInput.value.trim();
       if (!text) return;
+
       const tasks = loadTasks();
-      tasks.push({
-        id: Date.now(),
-        text,
-        done: false,
-      });
+      tasks.push({ id: Date.now(), text, done: false });
+
       saveTasks(tasks);
       taskInput.value = "";
       renderTasks();
@@ -847,8 +826,7 @@
       } else {
         const h = Math.floor(minutes / 60);
         const m = minutes % 60;
-        focusTimeTodaySpan.textContent =
-          m === 0 ? `${h} h` : `${h} h ${m} min`;
+        focusTimeTodaySpan.textContent = m === 0 ? `${h} h` : `${h} h ${m} min`;
       }
     }
 
@@ -865,53 +843,46 @@
         totalFocusSecondsToday = 0;
         saveStats();
       }
+
       renderStats();
     }
 
     // ====== EVENTOS ======
     startPauseBtn.addEventListener("click", () => {
-      if (timerInterval) {
-        stopTimer();
-      } else {
-        startTimer();
-      }
+      if (timerInterval) stopTimer();
+      else startTimer();
     });
 
-    resetBtn.addEventListener("click", () => {
-      resetTimer();
-    });
+    resetBtn.addEventListener("click", resetTimer);
 
     nextPhaseBtn.addEventListener("click", () => {
-      stopTimer();
-      if (currentMode === "focus") {
-        currentMode = "shortBreak";
-        remainingSeconds = config.shortBreakMinutes * 60;
-      } else if (currentMode === "shortBreak") {
-        currentMode = "focus";
-        remainingSeconds = config.focusMinutes * 60;
-      } else {
-        currentMode = "focus";
-        remainingSeconds = config.focusMinutes * 60;
-      }
-      updateTimerDisplay();
+      // alterna manualmente
+      if (currentMode === "focus") setMode("shortBreak");
+      else setMode("focus");
     });
 
-    presetButtons.forEach((btn) => {
+    modeTabs.forEach((btn) => {
       btn.addEventListener("click", () => {
-        const preset = btn.getAttribute("data-preset");
-        setPreset(preset);
+        const mode = btn.getAttribute("data-mode");
+        setMode(mode);
       });
+    });
+
+    toggleCustomBtn.addEventListener("click", () => {
+      const isOpen = customTimes.style.display === "flex";
+      customTimes.style.display = isOpen ? "none" : "flex";
     });
 
     applyCustomBtn.addEventListener("click", () => {
       const f = parseInt(focusInput.value, 10) || 25;
       const s = parseInt(shortBreakInput.value, 10) || 5;
       const l = parseInt(longBreakInput.value, 10) || 15;
+
       config.focusMinutes = Math.min(Math.max(f, 1), 180);
       config.shortBreakMinutes = Math.min(Math.max(s, 1), 60);
       config.longBreakMinutes = Math.min(Math.max(l, 1), 60);
-      remainingSeconds = config.focusMinutes * 60;
-      currentMode = "focus";
+
+      remainingSeconds = totalSecondsForMode(currentMode);
       updateTimerDisplay();
     });
 
@@ -930,9 +901,9 @@
     });
 
     // ====== INICIALIZAÇÃO ======
-    setPreset("classic");
     initStats();
     renderTasks();
+    updateTimerDisplay();
   </script>
 </body>
 </html>
