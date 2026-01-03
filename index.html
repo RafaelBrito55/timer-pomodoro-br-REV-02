@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Google tag (gtag.js) - Timer Pomodoro BR -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HJF23WHHJW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-HJF23WHHJW');
-  </script>
-
   <meta charset="UTF-8" />
   <title>Timer Pomodoro BR – Timer Pomodoro online em português para estudar e trabalhar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -446,7 +436,7 @@
     <!-- Espaço para anúncio superior (AdSense) -->
     <div class="top-ad">
       <div class="ad-placeholder">
-        Espaço para anúncio – substitua este bloco pelo código do AdSense.
+        
       </div>
     </div>
 
@@ -459,7 +449,6 @@
           </div>
           <div class="preset-row" aria-label="Configurações de tempo">
             <button class="preset-pill active" data-preset="classic">25/5/15</button>
-            <button class="preset-pill" data-preset="long">50/10/20</button>
             <button class="preset-pill" data-preset="custom">Personalizar</button>
           </div>
         </div>
@@ -559,7 +548,7 @@
 
         <div class="bottom-ad" aria-label="Anúncio">
           <div class="ad-placeholder">
-            Espaço para anúncio – coloque aqui um bloco do AdSense.
+            
           </div>
         </div>
       </section>
@@ -582,7 +571,7 @@
 
         <h2>Como usar o Timer Pomodoro BR</h2>
         <ul>
-          <li>1. Escolha um bloco de tempo (25/5/15 ou 50/10/20, por exemplo).</li>
+          <li>1. Escolha um bloco de tempo (25/5/15, por exemplo).</li>
           <li>2. Liste 2–5 tarefas na área “Tarefas desta sessão”.</li>
           <li>3. Clique em <strong>Iniciar</strong> e foque totalmente até o timer zerar.</li>
           <li>4. Faça a pausa curta, levante, beba água, alongue.</li>
@@ -743,12 +732,8 @@
         config.shortBreakMinutes = 5;
         config.longBreakMinutes = 15;
         customTimes.style.display = "none";
-      } else if (preset === "long") {
-        config.focusMinutes = 50;
-        config.shortBreakMinutes = 10;
-        config.longBreakMinutes = 20;
-        customTimes.style.display = "none";
       } else {
+        // custom
         customTimes.style.display = "flex";
       }
 
